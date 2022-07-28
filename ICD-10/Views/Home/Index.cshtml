@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model BillingCode
+
+<div class="text-center">
+    <h1>Search for an ICD10 Code:</h1>
+    <br />
+    <form asp-controller="Home" asp-action="SearchResult" method="post">
+        <input type="text" name="textbox" />
+        <br />
+        <br />
+        <input type="submit"/>
+    </form>
+    <br />
+</div>

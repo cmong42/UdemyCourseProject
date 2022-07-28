@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Search Results";
+}
+
+
+<div class="text-center">
+    <h1>Search Results:</h1>
+    <br />
+    @{
+        if (Model.Count == 0)
+        {
+                <em>No Results</em>
+        }
+        else
+        {
+            foreach (BillingCode m in Model)
+            {
+                <p>@m.code: @m.description</p>
+                }
+            }
+        }
+    <br />
+    <br />
+    <br />
+<input type="button" value="Go Back to Homepage" onclick="window.history.back()" />
+</div>
