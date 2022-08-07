@@ -5,13 +5,16 @@
 @model BillingCode
 
 <div class="text-center">
-    <h1>Search for an ICD10 Code:</h1>
+    <h1>Welcome to ICD10 Search</h1>
+    <br />
+    <br />
+    <h2>Enter a diagnosis below:</h2>
     <br />
     <form asp-controller="Home" asp-action="SearchResult" method="post">
         <input type="text" name="textbox" />
         <br />
         <br />
-        <input type="submit"/>
+        <input type="submit" />
     </form>
     <br />
 </div>
