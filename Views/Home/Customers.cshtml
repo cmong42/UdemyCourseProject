@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Customers";
+}
+
+<h2>Customers</h2>
+<br />
+<a href="@Url.Action("FormView", "Home")" class="btn btn-info">Add New Customers</a>
+<br />
+<br />
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Full Name</th>
+            <th>Discount Rate</th>
+            <td>Duration of Membership in Months</td>
+        </tr>
+    </thead>
+    @{
+        var hc = new Vidly2.Controllers.HomeController();
+        foreach (Customer c in Model)
+        {
+        <tr><td><a href="@Url.Action("CustomerProfile", "Home", new { id = @c.CustomerId })">@c.FirstName @c.LastName</a></td><td>@c.DiscountRate</td><td>@c.DurationInMonths</td></tr>
+            }
+        }
+</table>
+
+
+

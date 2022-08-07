@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Customer Profile";
+}
+   <h1>@Model.FirstName @Model.LastName</h1>
+   <ul>
+       <li>@Model.DiscountRate for @Model.DurationInMonths months</li>
+       @{
+           DateTime birthdateVariable = Model.Birthdate;
+           if (birthdateVariable != null)
+           {
+               <li>@birthdateVariable</li>
+            }
+            else
+            {
+
+            }
+
+       }
+
+   </ul>
+
+
+

@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Edit Movie";
+}
+
+@model Movie
+
+<h2>Edit Movie</h2>
+
+@using (Html.BeginForm("SaveMovie", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>
+            Name: @Html.TextBoxFor(m => m.Name, new { @class = "form-control"})
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+            Release Date: @Html.TextBoxFor(m => m.ReleaseDate, new { @class = "form-control" })
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+            Genre: @Html.DropDownListFor(m => m.Genre, new SelectList(new List<string> {"Action", "Drama", "Horror", "Comedy", "Romance", "Documentary", "Historical Piece", "Family/Children", "Anime"}),"Select a Genre" , new { @class = "form-control"})
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+            Number In Stock: @Html.TextBoxFor(m => m.NumberInStock, new { @class = "form-control"})
+        </label>
+    </div>
+    <div>
+        @Html.HiddenFor(m => m.Id)
+    </div>
+    <button type="submit">Save</button>
+
+        }

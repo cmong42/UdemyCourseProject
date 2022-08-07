@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Movies";
+}
+
+
+<h2>Movies</h2>
+<br />
+<a href="@Url.Action("AddMovie", "Home")" class="btn btn-info">Add Movie</a>
+<br />
+<br />
+@{
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Movies</th>
+                
+            </tr>
+            </thead>
+            @{
+                foreach (Movie m in Model)
+                {
+                    <tr><td><a href="@Url.Action("UpdateMovie", "Home", new { id = m.Id })">@m.Name</a></td></tr>
+                }
+            }
+    </table>
+}

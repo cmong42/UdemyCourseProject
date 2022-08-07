@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Add Movie";
+}
+
+@model Movie
+
+<h2>Add Movie</h2>
+
+@using (Html.BeginForm("SaveMovie", "Home", FormMethod.Post))
+{
+    <br />
+    <br />
+    <div class="validation-summary">
+        @Html.ValidationSummary()
+    </div>
+    
+    <div class="form-group">
+        <label>
+            Name:
+            @Html.ValidationMessageFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+            Release Date: @Html.TextBoxFor(m => m.ReleaseDate, new { @class = "form-control" })
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+            Genre:
+            @Html.ValidationMessageFor(m => m.Genre)
+            @Html.DropDownListFor(m => m.Genre, new SelectList(new List<string> { "Action", "Drama", "Horror", "Comedy", "Romance", "Documentary", "Historical Piece" }), "Select a Genre", new { @class = "form-control" })
+        </label>
+    </div>
+    <div class="form-group">
+
+        <label>
+            Number In Stock:
+            @Html.ValidationMessageFor(m => m.NumberInStock)
+            @Html.TextBoxFor(m => m.NumberInStock, new { @class = "form-control" })
+        </label>
+    </div>
+    <div>
+        @Html.HiddenFor(m => m.Id)
+    </div>
+    @Html.AntiForgeryToken()
+    <button type="submit">Save</button>
+
+}
